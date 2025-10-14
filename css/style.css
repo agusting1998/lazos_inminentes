@@ -1,0 +1,353 @@
+/* Mobile first reset */
+:root {
+  --font: 'JetBrains Mono', monospace;
+  --bg-dark: #2f2f2f;
+  --muted: rgba(255,255,255,0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: #111;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  background: #5b3f39;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.logo {
+  margin: auto;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,0.18);
+  padding: 4px 12px;
+  border-radius: 10px;
+}
+
+.hamburger {
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 26px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-panel {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(6px);
+  padding: 28px 20px;
+  border-radius: 6px;
+  margin-top: 72px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.menu-list a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.scene {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 28px;
+  background-size: cover;
+  background-position: center;
+}
+
+.scene-orange {
+  background-color: #f49a62;
+}
+
+.scene-purple {
+  background-color: #7f39b6;
+}
+
+.scene-mint {
+  background-color: #cfeee1;
+}
+
+.about-hero {
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  padding: 18px;
+}
+
+.character {
+  position: absolute;
+  left: 12vh;
+  top: 20vh;
+  transform: translateX(-50%) translateZ(0);
+  max-width: none;
+  width: 260px;
+  height: auto;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.35));
+}
+
+.char-right {
+  left: 34vh;
+  top: 40vh;
+}
+
+.char-left.tall {
+  width: 220px;
+  bottom: 18px;
+}
+
+.char-left.big {
+  width: 210px;
+  bottom: 12px;
+}
+
+.char-right.action {
+  width: 190px;
+  bottom: 10px;
+}
+
+.tag.name {
+  position: absolute;
+  right: 18px;
+  top: 100px;
+  background: rgba(255,255,255,0.98);
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+.chip.sign {
+  position: absolute;
+  right: 18px;
+  top: 80vh;
+  background: rgba(255,255,255,0.9);
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.age {
+  position: absolute;
+  right: 18px;
+  top: 23vh;
+  background: #000;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.bio-card,
+.bio-box {
+  position: absolute;
+  left: 6px;
+  top: 40vh;
+  width: 22vh;
+  height: 36vh;
+  background: rgba(0,0,0,0.56);
+  color: #fff;
+  padding: 16px;
+  backdrop-filter: blur(2px);
+}
+
+.bio-card h3,
+.bio-box h3 {
+  background-color: white;
+  color: black;
+  width: 22vh;
+  margin-top: -2.5vh;
+  margin-left: -2.5vh;
+  font-size: 15px;
+  padding-top: 10px;
+}
+
+.bio-card p,
+.bio-box p {
+  margin: 2;
+  font-size: 8px;
+  line-height: 1.35;
+}
+
+.meta-card {
+  position: absolute;
+  right: 12px;
+  top: 34%;
+  width: 52%;
+  background: rgba(255,255,255,0.95);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.pills {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.06);
+  font-size: 12px;
+}
+
+.pets {
+  font-size: 12px;
+  color: #333;
+}
+
+.about-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: rgba(255,255,255,0.92);
+  padding: 12px;
+  border-radius: 8px;
+  max-width: 640px;
+  margin: 22px auto;
+}
+
+.avatar img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.about-text h3 {
+  margin: 0 0 6px 0;
+}
+
+.about-text p {
+  margin: 6px 0;
+  color: #333;
+}
+
+/* --- ESTILOS AGREGADOS PARA LA SECCIÓN "ANÁLISIS TÉCNICO" --- */
+
+.tech-menu-container {
+  position: absolute;
+  left: 50%;
+  top: 30vh;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 320px;
+  padding: 0;
+  color: #fff;
+}
+
+.tech-menu-title {
+  font-size: 14px;
+  font-weight: 200;
+  padding-top: 10px;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  margin-left: 82px;
+  text-align: left;
+  color: black;
+  background-color: white;
+  width: 30vh;
+  height: 6vh;
+}
+
+.tech-chip-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 90px;
+  margin-bottom: 30px;
+}
+
+.tech-main-chip {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  margin-left: 10vh;
+  padding-left: 2vh;
+  height: 6vh;
+  width: 15vh;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tech-sub-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 2px 0 2px 90px;
+}
+
+.tech-sub-pill {
+  display: inline-block;
+  background: #fff;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 6px;
+  font-weight: 500;
+  width: fit-content;
+}

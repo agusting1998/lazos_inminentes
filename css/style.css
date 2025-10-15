@@ -1,563 +1,859 @@
-/* --- RESET Y VARIABLES --- */
 :root {
-  --font: 'JetBrains Mono', monospace;
-  --bg-dark: #2f2f2f;
-  --muted: rgba(255,255,255,0.6);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  font-family: var(--font);
-  background: #111;
-  color: #111;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* --- APP --- */
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* --- TOPBAR --- */
-.topbar {
-  height: 64px;
-  display: flex;
-  align-items: center;
-  padding: 12px 14px;
-  background: #5b3f39;
-  color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 40;
-}
-
-.logo {
-  margin: auto;
-  font-weight: 700;
-  letter-spacing: 1px;
-  background: rgba(0,0,0,0.18);
-  padding: 4px 12px;
-  border-radius: 10px;
-}
-
-.hamburger {
-  background: transparent;
-  border: 0;
-  padding: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.hamburger span {
-  display: block;
-  height: 3px;
-  width: 26px;
-  background: #fff;
-  border-radius: 3px;
-}
-
-/* --- OVERLAY --- */
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.overlay.hidden {
-  display: none;
-}
-
-.overlay-panel {
-  width: 100%;
-  max-width: 420px;
-  background: rgba(255,255,255,0.94);
-  backdrop-filter: blur(6px);
-  padding: 28px 20px;
-  border-radius: 6px;
-  margin-top: 72px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.menu-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu-list li {
-  padding: 14px 4px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.menu-list a {
-  color: #333;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-/* --- ESCENAS --- */
-.scene {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 28px;
-  background-size: cover;
-  background-position: center;
-}
-
-.scene-orange { background-color: #f49a62; }
-.scene-purple { background-color: #7f39b6; }
-.scene-mint { background-color: #cfeee1; }
-
-.about-hero {
-  min-height: 80vh;
-  background-size: cover;
-  background-position: center;
-  padding: 18px;
-}
-
-/* --- PERSONAJES --- */
-.character {
-  position: absolute;
-  left: 12vh;
-  top: 20vh;
-  transform: translateX(-50%) translateZ(0);
-  max-width: none;
-  width: 260px;
-  height: auto;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.35));
-  max-width: 100%;
-}
-
-.char-right { left: 34vh; top: 40vh; }
-.char-left.tall { width: 220px; bottom: 18px; }
-.char-left.big { width: 210px; bottom: 12px; }
-.char-right.action { width: 190px; bottom: 10px; }
-
-/* --- TAGS, CHIPS Y EDAD --- */
-.tag.name {
-  position: absolute;
-  right: 18px;
-  top: 100px;
-  background: rgba(255,255,255,0.98);
-  padding: 8px 12px;
-  border-radius: 14px;
-  font-weight: 600;
-}
-
-.chip.sign {
-  position: absolute;
-  right: 18px;
-  top: 80vh;
-  background: rgba(255,255,255,0.9);
-  padding: 6px 10px;
-  border-radius: 12px;
-  font-size: 13px;
-}
-
-.age {
-  position: absolute;
-  right: 18px;
-  top: 23vh;
-  background: #000;
-  color: #fff;
-  padding: 6px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-}
-
-/* --- BIO CARDS --- */
-.bio-card, .bio-box {
-  position: absolute;
-  left: 6px;
-  top: 40vh;
-  width: 22vh;
-  height: 36vh;
-  background: rgba(0,0,0,0.56);
-  color: #fff;
-  padding: 16px;
-  backdrop-filter: blur(2px);
-}
-
-.bio-card h3, .bio-box h3 {
-  background-color: white;
-  color: black;
-  width: 22vh;
-  margin-top: -2.5vh;
-  margin-left: -2.5vh;
-  font-size: 15px;
-  padding-top: 10px;
-}
-
-.bio-card p, .bio-box p {
-  margin: 2px 0;
-  font-size: 8px;
-  line-height: 1.35;
-}
-
-/* --- META CARD --- */
-.meta-card {
-  position: absolute;
-  right: 12px;
-  top: 34%;
-  width: 52%;
-  background: rgba(255,255,255,0.95);
-  padding: 12px;
-  border-radius: 8px;
-  max-width: 100%;
-}
-
-/* --- PILLS --- */
-.pills {
-  display: flex;
-  gap: 8px;
-  margin: 8px 0;
-}
-
-.pill {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.06);
-  font-size: 12px;
-}
-
-/* --- ABOUT CARD --- */
-.about-card {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  background: rgba(255,255,255,0.92);
-  padding: 12px;
-  border-radius: 8px;
-  max-width: 640px;
-  margin: 22px auto;
-}
-
-.avatar img {
-  width: 96px;
-  height: 96px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-.about-text h3 { margin: 0 0 6px 0; }
-.about-text p { margin: 6px 0; color: #333; }
-
-/* --- ESTILOS ANÁLISIS TÉCNICO --- */
-.tech-menu-container {
-  position: absolute;
-  right: 2%;
-  top: 25vh;
-  width: 28%;
-  max-width: 400px;
-  padding: 0;
-  color: #fff;
-}
-
-.tech-menu-title {
-  font-size: 14px;
-  font-weight: 200;
-  padding-top: 10px;
-  padding-left: 10px;
-  margin-bottom: 20px;
-  text-align: left;
-  color: black;
-  background-color: white;
-  width: 100%;
-  height: auto;
-}
-
-.tech-chip-group {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-left: 0;
-  margin-bottom: 30px;
-}
-
-.tech-main-chip {
-  display: flex;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  margin-left: 0;
-  padding-left: 1vh;
-  height: auto;
-  width: auto;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.tech-sub-pills {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-left: 0;
-}
-
-.tech-sub-pill {
-  display: inline-block;
-  background: #fff;
-  color: #333;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 6px;
-  font-weight: 500;
-  width: fit-content;
-}
-
-/* --- AJUSTES POR SECTORES --- */
-/* NARANJA */
-.scene-orange .tag.name { font-size: 20px; padding: 10px 16px; }
-.scene-orange .age { font-size: 16px; padding: 8px 12px; line-height: 1.2; }
-.scene-orange .chip.sign { font-size: 16px; padding: 8px 12px; }
-.scene-orange .character { width: 320px; max-width: 100%; filter: drop-shadow(0 25px 35px rgba(0,0,0,0.35)); }
-
-/* VIOLETA */
-.scene-purple .bio-card, .scene-purple .bio-box { width: 20vh; height: 34vh; overflow: hidden; padding: 14px; }
-.scene-purple .bio-card h3, .scene-purple .bio-box h3 { width: 20vh; margin-top: -2vh; margin-left: -2vh; }
-
-/* VERDE */
-.scene-mint .character { left: 2%; top: 40%; width: 28vw; max-width: 100%; }
-.scene-mint .tech-menu-container { right: 2%; top: 25vh; width: 28%; max-width: 400px; transform: none; }
-.scene-mint .tech-menu-title { width: 100%; margin-left: 0; padding-left: 10px; }
-.scene-mint .tech-chip-group { margin-left: 0; gap: 12px; }
-.scene-mint .tech-main-chip { margin-left: 0; padding-left: 1vh; width: auto; }
-.scene-mint .tech-sub-pills { margin-left: 0; }
-
-/* --- MEDIA QUERIES --- */
-@media (max-width: 768px) {
-  /* Naranja */
-  .scene-orange .tag.name { font-size: 18px; padding: 8px 12px; }
-  .scene-orange .age { font-size: 14px; padding: 6px 10px; }
-  .scene-orange .chip.sign { font-size: 14px; padding: 6px 10px; }
-  .scene-orange .character { width: 50vw; }
-
-  /* Violeta */
-  .scene-purple .bio-card, .scene-purple .bio-box { width: 40vw; height: auto; }
-
-  /* Verde */
-  .scene-mint .tech-menu-container { width: 90%; right: 5%; top: 20vh; }
-  .scene-mint .character { width: 45vw; left: 2%; top: 35%; }
-}
-
-@media (max-width: 480px) {
-  .scene, .about-hero { 
-    padding: 12px; 
-    min-height: 100vh;
-  }
-
-  /* NARANJA - Ajustes móviles */
-  .scene-orange .character { 
-    width: 65vw !important;
-    left: 50% !important;
-    top: 30% !important;
-    transform: translateX(-50%) translateZ(0);
-  }
-
-  .scene-orange .tag.name { 
-    top: 8% !important;
-    right: 12px !important;
-    font-size: 18px;
-    padding: 10px 14px;
-    font-weight: 700;
-  }
-
-  .scene-orange .age { 
-    top: 24% !important;
-    right: 12px !important;
-    font-size: 14px;
-    padding: 8px 10px;
-    font-weight: 600;
-  }
-
-  .scene-orange .chip.sign { 
-    top: 32% !important;
-    right: 12px !important;
-    font-size: 14px;
-    padding: 8px 12px;
-    font-weight: 600;
-  }
-
-  .scene-orange .meta-card {
-    display: none;
-  }
-
-  /* VIOLETA - Bio Card */
-  .scene-purple .bio-card, .scene-purple .bio-box { 
-    width: 55vw !important;
-    height: auto;
-    max-height: 55vh;
-    top: 50% !important;
-    left: 8px !important;
-    transform: translateY(-50%);
-    padding: 0;
-    background: rgba(0,0,0,0.56);
-    overflow: hidden;
-  }
-
-  .scene-purple .bio-card h3, .scene-purple .bio-box h3 { 
-    width: 100%;
-    margin: 0;
-    font-size: 14px;
-    padding: 12px;
-    background-color: white;
-    color: black;
-  }
-
-  .scene-purple .bio-card p, .scene-purple .bio-box p {
-    font-size: 10px;
-    line-height: 1.3;
-    padding: 0 12px;
-    margin: 6px 0;
-  }
-
-  .scene-purple .bio-card { 
-    padding: 0;
-  }
-
-  .scene-purple .bio-card:first-child { 
-    padding-top: 0;
-  }
-
-  .scene-purple .character { 
-    width: 55vw !important;
-    right: 8px !important;
-    left: auto !important;
-    top: 50% !important;
-    transform: translateY(-50%);
-  }
-
-  /* VERDE - Análisis Técnico */
-  .scene-mint .character { 
-    width: 45vw !important;
-    left: 8px !important;
-    top: 50% !important;
-    transform: translateY(-50%);
-  }
-
-  .scene-mint .tech-menu-container { 
-    width: 48vw !important;
-    right: 8px !important;
-    left: auto !important;
-    top: 50% !important;
-    transform: translateY(-50%);
-    max-width: none;
-  }
-
-  .scene-mint .tech-menu-title { 
-    width: 100% !important;
-    font-size: 14px;
-    padding: 12px;
-    margin: 0 0 15px 0;
-    margin-bottom: 15px;
-  }
-
-  .scene-mint .tech-chip-group { 
-    gap: 12px;
-    margin-left: 0;
-    margin-bottom: 20px;
-  }
-
-  .scene-mint .tech-main-chip { 
-    padding: 8px 14px;
-    font-size: 12px;
-    width: fit-content;
-  }
-
-  .scene-mint .tech-sub-pill {
-    padding: 7px 12px;
-    font-size: 11px;
-  }
-
-  /* General */
-  .character { 
-    left: 50% !important;
-    top: 35vh !important;
-    width: 60vw !important;
-    transform: translateX(-50%) translateZ(0);
-  }
-
-  .char-right { 
-    left: 50% !important;
-    top: 40vh !important;
-    transform: translateX(-50%) translateZ(0);
-  }
-
-  .char-left.tall { 
-    width: 55vw !important;
-    bottom: 12px !important;
-  }
-
-  .char-left.big { 
-    width: 55vw !important;
-    bottom: 8px !important;
-  }
-
-  .char-right.action { 
-    width: 55vw !important;
-    bottom: 5px !important;
-  }
-
-  .tag.name { 
-    top: 12% !important;
-    right: 12px !important;
-    font-size: 16px;
-    padding: 8px 12px;
-  }
-
-  .chip.sign { 
-    top: 72vh !important;
-    right: 12px !important;
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  .age { 
-    top: 28% !important;
-    right: 12px !important;
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  .bio-card, .bio-box { 
-    width: 55vw !important;
-    height: auto;
-    top: 50% !important;
-    left: 8px !important;
-    transform: translateY(-50%);
-    padding: 0;
-  }
-
-  .bio-card h3, .bio-box h3 {
-    width: 100%;
-    margin: 0;
-    font-size: 14px;
-    padding: 12px;
-  }
-
-  .meta-card { 
-    width: 85vw !important;
-    right: auto !important;
-    left: 7.5vw !important;
-    top: 60% !important;
-  }
-}
+      --font: 'JetBrains Mono', monospace;
+      --bg-dark: #2f2f2f;
+      --muted: rgba(255,255,255,0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background: #111;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- APP --- */
+    .app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- TOPBAR --- */
+    .topbar {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 12px 14px;
+      background: #5b3f39;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .logo {
+      margin: auto;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: rgba(0,0,0,0.18);
+      padding: 4px 12px;
+      border-radius: 10px;
+    }
+
+    .hamburger {
+      background: transparent;
+      border: 0;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 26px;
+      background: #fff;
+      border-radius: 3px;
+    }
+
+    /* --- OVERLAY --- */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .overlay.hidden {
+      display: none;
+    }
+
+    .overlay-panel {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(6px);
+      padding: 28px 20px;
+      border-radius: 6px;
+      margin-top: 72px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-list li {
+      padding: 14px 4px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .menu-list a {
+      color: #333;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    /* --- ESCENAS --- */
+    .scene {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 28px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .scene-orange { background-color: #f49a62; }
+    .scene-purple { background-color: #7f39b6; }
+    .scene-mint { background-color: #cfeee1; }
+
+    .about-hero {
+      min-height: 80vh;
+      background-size: cover;
+      background-position: center;
+      padding: 18px;
+    }
+
+    /* --- PERSONAJES --- */
+    .character {
+      position: absolute;
+      left: 12vh;
+      top: 20vh;
+      transform: translateX(-50%) translateZ(0);
+      max-width: none;
+      width: 260px;
+      height: auto;
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,0.35));
+      max-width: 100%;
+    }
+
+    .char-right { left: 34vh; top: 40vh; }
+    .char-left.tall { width: 220px; bottom: 18px; }
+    .char-left.big { width: 210px; bottom: 12px; }
+    .char-right.action { width: 190px; bottom: 10px; }
+
+    /* --- TAGS, CHIPS Y EDAD --- */
+    .tag.name {
+      position: absolute;
+      right: 18px;
+      top: 100px;
+      background: rgba(255,255,255,0.98);
+      padding: 8px 12px;
+      border-radius: 14px;
+      font-weight: 600;
+    }
+
+    .chip.sign {
+      position: absolute;
+      right: 18px;
+      top: 80vh;
+      background: rgba(255,255,255,0.9);
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-size: 13px;
+    }
+
+    .age {
+      position: absolute;
+      right: 18px;
+      top: 23vh;
+      background: #000;
+      color: #fff;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    /* --- BIO CARDS --- */
+    .bio-card, .bio-box {
+      position: absolute;
+      left: 6px;
+      top: 40vh;
+      width: 22vh;
+      height: 36vh;
+      background: rgba(0,0,0,0.56);
+      color: #fff;
+      padding: 16px;
+      backdrop-filter: blur(2px);
+    }
+
+    .bio-card h3, .bio-box h3 {
+      background-color: white;
+      color: black;
+      width: 22vh;
+      margin-top: -2.5vh;
+      margin-left: -2.5vh;
+      font-size: 15px;
+      padding-top: 10px;
+    }
+
+    .bio-card p, .bio-box p {
+      margin: 2px 0;
+      font-size: 8px;
+      line-height: 1.35;
+    }
+
+    /* --- META CARD --- */
+    .meta-card {
+      position: absolute;
+      right: 12px;
+      top: 34%;
+      width: 52%;
+      background: rgba(255,255,255,0.95);
+      padding: 12px;
+      border-radius: 8px;
+      max-width: 100%;
+    }
+
+    /* --- PILLS --- */
+    .pills {
+      display: flex;
+      gap: 8px;
+      margin: 8px 0;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.06);
+      font-size: 12px;
+    }
+
+    /* --- ABOUT CARD --- */
+    .about-card {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: rgba(255,255,255,0.92);
+      padding: 12px;
+      border-radius: 8px;
+      max-width: 640px;
+      margin: 22px auto;
+    }
+
+    .avatar img {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .about-text h3 { margin: 0 0 6px 0; }
+    .about-text p { margin: 6px 0; color: #333; }
+
+    /* --- ESTILOS ANÁLISIS TÉCNICO --- */
+    .tech-menu-container {
+      position: absolute;
+      right: 2%;
+      top: 25vh;
+      width: 28%;
+      max-width: 400px;
+      padding: 0;
+      color: #fff;
+    }
+
+    .tech-menu-title {
+      font-size: 14px;
+      font-weight: 200;
+      padding-top: 10px;
+      padding-left: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+      color: black;
+      background-color: white;
+      width: 100%;
+      height: auto;
+    }
+
+    .tech-chip-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-left: 0;
+      margin-bottom: 30px;
+    }
+
+    .tech-main-chip {
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      margin-left: 0;
+      padding-left: 1vh;
+      height: auto;
+      width: auto;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tech-sub-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-left: 0;
+    }
+
+    .tech-sub-pill {
+      display: inline-block;
+      background: #fff;
+      color: #333;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 6px;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero-section {
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .hero-title {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 32px;
+      font-weight: 600;
+      text-align: center;
+      z-index: 10;
+    }
+
+    /* --- ABOUT SECTION --- */
+    .about-section {
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .about-content {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .img-asset{
+       margin-left: 50px;
+      }
+
+    .about-section h2 {
+      background: rgba(255,255,255,0.95);
+      padding: 16px;
+      border-radius: 8px;
+      margin: 0 0 20px 0;
+      font-size: 28px;
+    }
+
+    .about-section p {
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      line-height: 1.6;
+      font-size: 8px;
+      max-height: 200px;
+    }
+
+
+    /* --- FOOTER --- */
+    .site-footer {
+      background: #222;
+      color: #999;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* --- AJUSTES POR SECTORES --- */
+    /* NARANJA */
+    .scene-orange .tag.name { font-size: 20px; padding: 10px 16px; }
+    .scene-orange .age { font-size: 16px; padding: 8px 12px; line-height: 1.2; }
+    .scene-orange .chip.sign { font-size: 16px; padding: 8px 12px; }
+    .scene-orange .character { width: 320px; max-width: 100%; filter: drop-shadow(0 25px 35px rgba(0,0,0,0.35)); }
+
+    /* VIOLETA */
+    .scene-purple .bio-card, .scene-purple .bio-box { width: 20vh; height: 34vh; overflow: hidden; padding: 14px; }
+    .scene-purple .bio-card h3, .scene-purple .bio-box h3 { width: 20vh; margin-top: -2vh; margin-left: -2vh; }
+
+    /* VERDE */
+    .scene-mint .character { left: 2%; top: 40%; width: 28vw; max-width: 100%; }
+    .scene-mint .tech-menu-container { right: 2%; top: 25vh; width: 28%; max-width: 400px; transform: none; }
+    .scene-mint .tech-menu-title { width: 100%; margin-left: 0; padding-left: 10px; }
+    .scene-mint .tech-chip-group { margin-left: 0; gap: 12px; }
+    .scene-mint .tech-main-chip { margin-left: 0; padding-left: 1vh; width: auto; }
+    .scene-mint .tech-sub-pills { margin-left: 0; }
+
+    /* --- MEDIA QUERIES --- */
+    @media (max-width: 768px) {
+      /* Naranja */
+      .scene-orange .tag.name { font-size: 18px; padding: 8px 12px; }
+      .scene-orange .age { font-size: 14px; padding: 6px 10px; }
+      .scene-orange .chip.sign { font-size: 14px; padding: 6px 10px; }
+      .scene-orange .character { width: 50vw; }
+
+      /* Violeta */
+      .scene-purple .bio-card, .scene-purple .bio-box { width: 40vw; height: auto; }
+
+      /* Verde */
+      .scene-mint .tech-menu-container { width: 90%; right: 5%; top: 20vh; }
+      .scene-mint .character { width: 45vw; left: 2%; top: 35%; }
+    }
+
+    @media (max-width: 480px) {
+      .scene, .about-hero, .hero-section, .about-section { 
+        padding: 12px; 
+        min-height: 100vh;
+      }
+
+      /* NARANJA - Ajustes móviles */
+      .scene-orange .character { 
+        width: 65vw !important;
+        left: 50% !important;
+        top: 30% !important;
+        transform: translateX(-50%) translateZ(0);
+      }
+
+      .scene-orange .tag.name { 
+        top: 8% !important;
+        right: 12px !important;
+        font-size: 18px;
+        padding: 10px 14px;
+        font-weight: 700;
+      }
+
+      .scene-orange .age { 
+        top: 24% !important;
+        right: 12px !important;
+        font-size: 14px;
+        padding: 8px 10px;
+        font-weight: 600;
+      }
+
+      .scene-orange .chip.sign { 
+        top: 32% !important;
+        right: 12px !important;
+        font-size: 14px;
+        padding: 8px 12px;
+        font-weight: 600;
+      }
+
+      .scene-orange .meta-card {
+        display: none;
+      }
+
+      /* VIOLETA - Bio Card */
+      .scene-purple .bio-card, .scene-purple .bio-box { 
+        width: 55vw !important;
+        height: auto;
+        max-height: 55vh;
+        top: 50% !important;
+        left: 8px !important;
+        transform: translateY(-50%);
+        padding: 0;
+        background: rgba(0,0,0,0.56);
+        overflow: hidden;
+      }
+
+      .scene-purple .bio-card h3, .scene-purple .bio-box h3 { 
+        width: 100%;
+        margin: 0;
+        font-size: 14px;
+        padding: 12px;
+        background-color: white;
+        color: black;
+      }
+
+      .scene-purple .bio-card p, .scene-purple .bio-box p {
+        font-size: 10px;
+        line-height: 1.3;
+        padding: 0 12px;
+        margin: 6px 0;
+      }
+
+      .scene-purple .bio-card { 
+        padding: 0;
+      }
+
+      .scene-purple .bio-card:first-child { 
+        padding-top: 0;
+      }
+
+      .scene-purple .character { 
+        width: 55vw !important;
+        right: 8px !important;
+        left: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%);
+      }
+
+      /* VERDE - Análisis Técnico */
+      .scene-mint .character { 
+        width: 45vw !important;
+        left: 8px !important;
+        top: 50% !important;
+        transform: translateY(-50%);
+      }
+
+      .scene-mint .tech-menu-container { 
+        width: 48vw !important;
+        right: 8px !important;
+        left: auto !important;
+        top: 50% !important;
+        transform: translateY(-50%);
+        max-width: none;
+      }
+
+      .scene-mint .tech-menu-title { 
+        width: 100% !important;
+        font-size: 14px;
+        padding: 12px;
+        margin: 0 0 15px 0;
+        margin-bottom: 15px;
+      }
+
+      .scene-mint .tech-chip-group { 
+        gap: 12px;
+        margin-left: 0;
+        margin-bottom: 20px;
+      }
+
+      .scene-mint .tech-main-chip { 
+        padding: 8px 14px;
+        font-size: 12px;
+        width: fit-content;
+      }
+
+      .scene-mint .tech-sub-pill {
+        padding: 7px 12px;
+        font-size: 11px;
+      }
+
+      /* General */
+      .character { 
+        left: 50% !important;
+        top: 35vh !important;
+        width: 60vw !important;
+        transform: translateX(-50%) translateZ(0);
+      }
+
+      .char-right { 
+        left: 50% !important;
+        top: 40vh !important;
+        transform: translateX(-50%) translateZ(0);
+      }
+
+      .char-left.tall { 
+        width: 55vw !important;
+        bottom: 12px !important;
+      }
+
+      .char-left.big { 
+        width: 55vw !important;
+        bottom: 8px !important;
+      }
+
+      .char-right.action { 
+        width: 55vw !important;
+        bottom: 5px !important;
+      }
+
+      .tag.name { 
+        top: 12% !important;
+        right: 12px !important;
+        font-size: 16px;
+        padding: 8px 12px;
+      }
+
+      .chip.sign { 
+        top: 72vh !important;
+        right: 12px !important;
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+
+      .age { 
+        top: 28% !important;
+        right: 12px !important;
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+
+      .bio-card, .bio-box { 
+        width: 55vw !important;
+        height: auto;
+        top: 50% !important;
+        left: 8px !important;
+        transform: translateY(-50%);
+        padding: 0;
+      }
+
+      .bio-card h3, .bio-box h3 {
+        width: 100%;
+        margin: 0;
+        font-size: 14px;
+        padding: 12px;
+      }
+
+      .meta-card { 
+        width: 85vw !important;
+        right: auto !important;
+        left: 7.5vw !important;
+        top: 60% !important;
+      }
+
+      .hero-title {
+        font-size: 24px;
+        padding: 10px 16px;
+      }
+
+      .about-section h2 {
+        font-size: 22px;
+      }
+    }
+    
+  /* SECCIÓN SOBRE EL ARTISTA */
+    .artist-section {
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .artist-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      height: 80vh;
+    }
+
+    /* Avatar - Izquierda */
+    .artist-avatar {
+      position: absolute;
+      left: 2%;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .artist-avatar img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .artist-name {
+      background: rgba(255,255,255,0.95);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .artist-socials {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .artist-socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 6px;
+      text-decoration: none;
+      color: #333;
+      font-size: 20px;
+      transition: transform 0.2s;
+    }
+
+    .artist-socials a:hover {
+      transform: scale(1.1);
+    }
+
+    /* Bio Card - Centro/Derecha */
+    .artist-bio-card {
+      position: absolute;
+      left: 32%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60%;
+      max-width: 520px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      padding: 24px;
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .artist-bio-card h3 {
+      background-color: white;
+      color: black;
+      margin: -24px -24px 16px -24px;
+      padding: 16px 24px;
+      font-size: 20px;
+      border-radius: 8px 8px 0 0;
+      font-weight: 600;
+    }
+
+    .artist-bio-card p {
+      margin: 0 0 12px 0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .artist-bio-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .artist-container {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .artist-avatar {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+      }
+
+      .artist-bio-card {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .artist-section {
+        padding: 16px;
+      }
+
+      .artist-container {
+        height: auto;
+      }
+
+      .artist-avatar img {
+        width: 140px;
+        height: 140px;
+      }
+
+      .artist-name {
+        font-size: 16px;
+        padding: 10px 16px;
+      }
+
+      .artist-bio-card {
+        padding: 20px;
+      }
+
+      .artist-bio-card h3 {
+        margin: -20px -20px 12px -20px;
+        font-size: 18px;
+        padding: 14px 20px;
+      }
+
+      .artist-bio-card p {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .artist-section {
+        padding: 12px;
+      }
+
+      .artist-avatar {
+        gap: 12px;
+      }
+
+      .artist-avatar img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .artist-name {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+
+      .artist-socials a {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+
+      .artist-bio-card {
+        padding: 16px;
+      }
+
+      .artist-bio-card h3 {
+        margin: -16px -16px 12px -16px;
+        font-size: 16px;
+        padding: 12px 16px;
+      }
+
+      .artist-bio-card p {
+        font-size: 11px;
+        line-height: 1.5;
+      }
+    }

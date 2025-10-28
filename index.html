@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="app">
+	
   <header class="topbar">
     <button id="btn-menu" class="hamburger" aria-label="Abrir menú">
       <span></span><span></span><span></span>
@@ -18,8 +19,17 @@
     <div class="overlay-panel">
       <ul class="menu-list">
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="#personajes">Personajes</a></li>
-        <li><a href="#sobrenos">¿Quiensoy?</a></li>
+        <li id="personajes-item" class="has-submenu">
+          <a href="#personajes">Personajes</a>
+          <ul class="submenu hidden" id="personajes-submenu">
+            <li><a href="./pages/sect_manuel.html">Manuel</a></li>
+            <li><a href="./pages/sect_federico.html">Federico</a></li>
+            <li><a href="./pages/sect_nicolas.html">Nicolás</a></li>
+            <li><a href="./pages/sect_vanesa.html">Vanesa</a></li>
+            <li><a href="./pages/sect_mayra.html">Mayra</a></li>
+          </ul>
+        </li>
+        <li><a href="./pages/about_us.html">¿Quiensoy?</a></li>
       </ul>
     </div>
   </nav>

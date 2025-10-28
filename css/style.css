@@ -87,9 +87,10 @@
       background: rgba(255,255,255,0.94);
       backdrop-filter: blur(6px);
       padding: 28px 20px;
-      border-radius: 6px;
-      margin-top: 72px;
+      margin-top: 52px;
+      text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: 1s;
     }
 
     .menu-list {
@@ -337,17 +338,11 @@
 
     .hero-title {
       position: absolute;
-      bottom: 50%;
-      left: 50%;
-      transform: translateX(-50%);
       background: rgba(0,0,0,0.5);
       color: #fff;
       padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 32px;
-      font-weight: 600;
+      border-radius: 100px;
       text-align: center;
-      z-index: 10;
     }
 
     /* --- ABOUT SECTION --- */
@@ -857,3 +852,45 @@
         line-height: 1.5;
       }
     }
+    
+/* --- SUBMENÚ PERSONAJES --- */
+.has-submenu {
+  position: relative;
+}
+
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 8px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.submenu.hidden {
+  display: none;
+}
+
+.submenu li {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.submenu li:last-child {
+  border-bottom: none;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px 0;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.submenu a:hover {
+  background: rgba(0,0,0,0.05);
+}
+

@@ -1,18 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sobre el Artista - Lazos Inminentes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre el Artista</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="app">
-  	
+  
   <header class="topbar">
     <button id="btn-menu" class="hamburger" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>      
+    <div class="hero-title" style="font-size: 10px; margin-left: 57%;">Lazos Inminentes</div>
   </header>
   
   <nav id="overlay-menu" class="overlay hidden">
@@ -29,35 +32,37 @@
             <li><a href="./sect_mayra.html">Mayra</a></li>
           </ul>
         </li>
-        <li><a href="./about_us.html">¿Quiensoy?</a></li>
+        <li><a href="./about_us.html">¿Quien soy?</a></li>
       </ul>
     </div>
   </nav>
   
   <main>
-    <!-- SECCIÓN SOBRE EL ARTISTA -->
     <section id="artist" class="artist-section" style="background-image: url('../assets/img/images/sect_about_bckg.png')">
-      <div class="artist-container">
-        <!-- Avatar y datos del lado izquierdo -->
+      <div class="artist-container" style="justify-content: center;">
+        <img src="../assets/img/images/Perfil_Bio.png" alt="Agustín G." class="profile-image">
+        
         <div class="artist-avatar">
-          <img src="../assets/img/images/Perfil_Bio.png" alt="Agustín G.">
           <div class="artist-name">Agustín G.</div>
           <div class="artist-socials">
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">📷</a>
-            <a href="https://github.com" target="_blank" aria-label="GitHub">⚙️</a>
+            <a href="https://www.instagram.com/ag.studio.98/" target="_blank" aria-label="Instagram" style="background-image:url(../assets/img/icons/ig_ico.png); background-size: cover; width:25px; height:25px; border-radius:100px;"></a>
+            <a href="https://github.com/agusting98/" target="_blank" aria-label="GitHub" style="background-image:url(../assets/img/icons/github_ico.png); background-size: cover; width:25px; height:25px; border-radius:100px;"></a>
           </div>
         </div>
 
         <div class="artist-bio-card">
           <h3>Sobre el artista</h3>
-          <p>Nacido en 1995, Córdoba Capital, Agustín estudió Comunicación Social. A través de la experiencia, se especializó en diseño multimedia. Artista interdisciplinario, sus trabajos se caracterizan por explorar la identidad digital y la narrativa visual.</p>
-          <p>Actualmente, combina procesos técnicos de fotogrametría con softwares de modelado 3D, explorando nuevas formas de expresión artística. Su objetivo es reflexionar sobre cómo nos relacionamos con la tecnología en nuestro día a día.</p>
-          <p>Sus trabajos abordan temáticas sociales a través de instalaciones interactivas, video-art y experiencias inmersivas. Ha participado en varias muestras colectivas e individuales, consolidándose como referente en el campo del arte digital en la región.</p>
+          <p>Nacido en 1998 en Córdoba Capital, Agustín estudia la Tecnicatura en Creación Multimedial (UPC) y Desarrollo de Software (ISPC). Desde joven fue tecladista y pianista, combinando su sensibilidad musical con el diseño visual. Apasionado por los recitales y los eventos musicales, encuentra inspiración en las experiencias en vivo y en cómo la música se fusiona con la imagen para transmitir emociones.</p>
+          <p>Artista interdisciplinario, su trabajo se centra en la identidad digital, el diseño multimedia y la narrativa visual. Interesado en la tecnología, la inteligencia artificial, el desarrollo web y el diseño de videojuegos, integra herramientas digitales para crear proyectos que conectan lo técnico con lo expresivo. Su obra busca reflexionar sobre cómo la tecnología moldea nuestras percepciones cotidianas y la forma en que habitamos los entornos digitales.</p>
+          <p>Actualmente experimenta con fotogrametría y modelado 3D, explorando la fusión entre ambos mundos y tomando inspiración del arte retro 3D y de los videojuegos de la era PSX. Además, disfruta recorrer nuevos lugares en bicicleta, encontrando en esos trayectos una forma de observación y conexión con su entorno, que luego se refleja en su proceso creativo.</p>
         </div>
       </div>
     </section>
+
     <footer class="site-footer">Ag Studios 2025</footer>
   </main>
+
   <script src="../js/function.js"></script>
+  <audio src="../assets/music_2.mp3" autoplay loop></audio>
 </body>
 </html>

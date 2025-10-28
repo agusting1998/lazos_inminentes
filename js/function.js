@@ -21,3 +21,22 @@
   // Improve touch scrolling experience
   document.addEventListener('touchstart', function(){}, {passive:true});
 })();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const personajesItem = document.getElementById('personajes-item');
+  const submenu = document.getElementById('personajes-submenu');
+
+  if (personajesItem && submenu) {
+    const mainLink = personajesItem.querySelector('a');
+    mainLink.addEventListener('click', function(e) {
+      e.preventDefault(); // evita el salto inmediato
+      submenu.classList.toggle('hidden');
+    });
+
+    const subLinks = submenu.querySelectorAll('a');
+    subLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+      });
+    });
+  }
+});

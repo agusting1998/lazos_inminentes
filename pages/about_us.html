@@ -8,22 +8,32 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="app">
+  	
   <header class="topbar">
-    <button id="btn-menu-2" class="hamburger" aria-label="Abrir menú">
+    <button id="btn-menu" class="hamburger" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
-    <div class="logo">Lazos Inminentes</div>
   </header>
-
-  <nav id="overlay-menu-2" class="overlay hidden">
+  
+  <nav id="overlay-menu" class="overlay hidden">
     <div class="overlay-panel">
       <ul class="menu-list">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="sect_federico.html">Personajes</a></li>
-        <li><a href="aboutus.html">¿Quién soy?</a></li>
+        <li><a href="../index.html">Inicio</a></li>
+        <li id="personajes-item" class="has-submenu">
+          <a href="#personajes">Personajes</a>
+          <ul class="submenu hidden" id="personajes-submenu">
+            <li><a href="./sect_manuel.html">Manuel</a></li>
+            <li><a href="./sect_federico.html">Federico</a></li>
+            <li><a href="./sect_nicolas.html">Nicolás</a></li>
+            <li><a href="./sect_vanesa.html">Vanesa</a></li>
+            <li><a href="./sect_mayra.html">Mayra</a></li>
+          </ul>
+        </li>
+        <li><a href="./about_us.html">¿Quiensoy?</a></li>
       </ul>
     </div>
   </nav>
+  
   <main>
     <!-- SECCIÓN SOBRE EL ARTISTA -->
     <section id="artist" class="artist-section" style="background-image: url('../assets/img/images/sect_about_bckg.png')">
